@@ -22,6 +22,7 @@ class NiFiUtility {
         httpPost.setHeader("s3_prefix", s3Prefix)
         httpPost.setHeader("shutdown_flag", shutdownFlag)
         httpPost.setHeader("reprocess_files", reprocessFiles)
+        httpPost.setHeader("retry_value", retryValue)
     }
 
     @Value("\${export.date}")
@@ -41,4 +42,7 @@ class NiFiUtility {
 
     @Value("\${shutdown.flag}")
     private lateinit var shutdownFlag: String
+
+    @Value("\${retry.value:}")
+    private lateinit var retryValue: String
 }
